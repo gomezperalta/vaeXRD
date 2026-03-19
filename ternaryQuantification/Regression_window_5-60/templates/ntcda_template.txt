@@ -1,0 +1,33 @@
+str 
+  phase_name  "ntcda" 
+    scale @  0.00200372315`_7.743e-06
+ 
+'unit cell 
+  space_group "P2_1/c" 
+  a   7.88000  '7.88000   'latpars  a @ 7.88000  '7.88000
+  b   5.32200  '5.32200   'latpars  b @ 5.32200  '5.32200
+  c   12.60120 '12.60120  'latpars  c @ 12.60120 '12.60120
+  al  90.00000  
+  be  107.25700 '107.25700   'latpars  be @ 107.25700 '107.25700
+  ga  90.00000  
+ 
+'atom basis in the unit cell 
+  site O1 x 0.2474 y 1.0061 z 0.24799 occ O 1.0 beq 0.0521
+  site O2 x 0.5363 y 0.9973 z 0.32620 occ O 1.0 beq 0.0417
+  site O3 x 0.8278 y 0.9998 z 0.39530 occ O 1.0 beq 0.0574
+  site C1 x 0.3523 y 0.6920 z 0.38640 occ C 1.0 beq 0.0300
+  site C2 x 0.1887 y 0.5886 z 0.37750 occ C 1.0 beq 0.0371
+  site C3 x 0.8260 y 0.6094 z 0.55250 occ C 1.0 beq 0.0372
+  site C4 x 0.6773 y 0.6997 z 0.47420 occ C 1.0 beq 0.0309
+  site C5 x 0.5071 y 0.5996 z 0.46440 occ C 1.0 beq 0.0264
+  site C6 x 0.3673 y 0.9051 z 0.31440 occ C 1.0 beq 0.0359
+  site C7 x 0.6938 y 0.9043 z 0.39880 occ C 1.0 beq 0.0377
+  site H2 x 0.0840 y 0.6440 z 0.3270 occ H 1.0 beq 0.0420
+  site H3 x 0.9420 y 0.6770 z 0.5590 occ H 1.0 beq 0.0520
+   
+  prm !avrg_size_ntcda  61.5220863`_1.10138106
+  lor_fwhm = Abs(5.72957 Lam / (Cos(Th) avrg_size_ntcda)) ; 
+
+  MVW( 1926.378, 529.106, 69.845`_0.309)
+
+  

@@ -1,0 +1,28 @@
+'Patron de difraccion simulado 
+ 
+'residuos to see goodness of the fit 
+r_wp  15.3040828
+ 
+'write standad deviations 
+do_errors 
+ 
+'The maximum number of refinement iterations, iters is set to 500000 by default 
+iters 1000 
+ 
+'chi2_convergence_criteria value of 0.001 is sufficient for routine refinements 
+chi2_convergence_criteria 0.0001 
+ 
+Difractometro() 
+  
+'Reading the diffraction pattern 
+xdd patron_de_difraccion.xy 
+ 
+'Next line is necessary if the diffraction pattern is a xy-file 
+x_calculation_step 0.020503597122302
+
+'Modeling background	 
+  bkg @  0 0 0 0 0 0
+  	One_on_X(@, 4255.55746`_198.400401) 
+ 
+'Specimen is outside of diffraction plane	 
+   Specimen_Displacement(@,-0.366644654`_0.00107501147) 

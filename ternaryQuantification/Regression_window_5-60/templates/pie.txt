@@ -1,0 +1,32 @@
+xdd_out refinado_patron_de_difraccion.xy load out_record out_fmt out_eqn { 
+	"%11.5f\t" = X; 
+	"%11.5f\n" = Ycalc; 
+} 
+ 
+macro Difractometro() 
+{                                                          
+  
+lam  
+	 ymin_on_ymax 0.00001                                                      
+                la  0.579  lo  1.5405902 lh  0.4374157 
+                la  0.080  lo  1.5410632 lh  0.6432140 
+                la  0.236  lo  1.5443983 lh  0.5128764 
+                la  0.105  lo  1.5446848 lh  0.6872322 
+  
+   Radius(217.5)                                                           
+   LP_Factor(!th2_monochromator, 0) 
+ Full_Axial_Model(12, 16, 16, 2.553, 3.113) 
+ 	'  12  Axial length of the X-ray source in mm 
+	'  16   Axial length of the sample in mm 
+	'  16   Axial length of the detector slit in mm 
+                         'For the Lynxeye it is the length of the Si strip 
+	 ' 2.553 primary_soller_angle   in degrees 
+         ' 3.113 secondary_soller_angle 3.113  in degrees 
+  
+ Tube_Tails(!source_width_c, 0.04 , !z1_c,-0.87980, !z2_c, 1.58642, !z1_z2_h_c, 0.00089) 
+	         
+	 'Horizontal divergence in the equatorial plane in degrees         
+   Divergence(0.5) 
+   Slit_Width(0.075)	  
+  
+}

@@ -1,0 +1,46 @@
+str 
+  phase_name  "Fluoresceina" 
+    scale @  0.000557347928`_1.775e-06
+ 
+'unit cell 
+  space_group "Pn2_1a" 
+  a   10.4595 '10.4595   'latpars  a @ 10.4595 '10.4595
+  b   13.219 '13.219    'latpars  b @ 13.219 '13.219
+  c   10.5664 '10.5664   'latpars  c @ 10.5664 '10.5664
+  al  90.00000  
+  be=Get(al);
+  ga=Get(al);
+ 
+'atom basis in the unit cell 
+  site C1  x 0.890 y 0.306 z 0.233 occ C 1.0 
+  site C2  x 0.790 y 0.261 z 0.299 occ C 1.0 
+  site C3  x 0.707 y 0.194 z 0.236 occ C 1.0 
+  site C4  x 0.526 y 0.086 z 0.246 occ C 1.0 
+  site C5  x 0.441 y 0.032 z 0.323 occ C 1.0 
+  site C6  x 0.349 y -0.032 z 0.267 occ C 1.0 
+  site C7  x 0.342 y -0.037 z 0.135 occ C 1.0 
+  site C8  x 0.426 y 0.019 z 0.058 occ C 1.0 
+  site C9  x 0.523 y 0.078 z 0.114 occ C 1.0 
+  site C10 x 0.605 y 0.140 z 0.041 occ C 1.0 
+  site C11 x 0.702 y 0.193 z 0.103 occ C 1.0 
+  site C12 x 0.789 y 0.254 z 0.035 occ C 1.0 
+  site C13 x 0.882 y 0.311 z 0.100 occ C 1.0 
+  site C14 x 0.619 y 0.123 z -0.098 occ C 1.0 
+  site C15 x 0.704 y 0.047 z -0.139 occ C 1.0 
+  site C16 x 0.734 y 0.036 z -0.268 occ C 1.0 
+  site C17 x 0.673 y 0.098 z -0.357 occ C 1.0 
+  site C18 x 0.577 y 0.165 z -0.318 occ C 1.0 
+  site C19 x 0.548 y 0.177 z -0.188 occ C 1.0 
+  site C20 x 0.458 y 0.261 z -0.150 occ C 1.0 
+  site O1  x 0.976 y 0.364 z 0.298 occ O 1.0 
+  site O2  x 0.613 y 0.148 z 0.303 occ O 1.0 
+  site O3  x 0.277 y -0.082 z 0.333 occ O 1.0 
+  site O4  x 0.385 y 0.309 z -0.235 occ O 1.0 
+  site O5  x 0.453 y 0.290 z -0.039 occ O 1.0 
+
+  prm !avrg_size_fluorescein  91.7876657`_1.32828592
+  lor_fwhm = Abs(5.72957 Lam / (Cos(Th) avrg_size_fluorescein));  
+
+  MVW( 1926.378, 529.106, 69.845`_0.309)
+
+  

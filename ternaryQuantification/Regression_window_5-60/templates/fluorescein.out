@@ -1,0 +1,135 @@
+'09/10/2017 Patron de difraccion simulado 
+ 
+'residuos to see goodness of the fit 
+r_wp  15.304083
+ 
+'write standad deviations 
+do_errors 
+ 
+'The maximum number of refinement iterations, iters is set to 500000 by default 
+iters 1000 
+ 
+'chi2_convergence_criteria value of 0.001 is sufficient for routine refinements 
+chi2_convergence_criteria 0.0001 
+ 
+Difractometro() 
+  
+'Reading the diffraction pattern 
+xdd Fluoresceina_interpolated.xy 'DOI:10.1002/anie.199707701
+ 
+'Next line is necessary if the diffraction pattern is a xy-file 
+'x_calculation_step 0205018 
+'Modeling backgrond	 
+  bkg @  193.9618`_13.6220584  208.816698`_17.0089507 -244.886655`_9.7949721  185.425685`_6.63977978
+  	One_on_X(@, 4255.56005`_198.4004) 
+ 
+'Specimen is outside of diffraction plane	 
+   Specimen_Displacement(@,-0.366644833`_0.00107500822) 
+ 
+'Definition of the crystal structure 
+str 
+  phase_name  "Fluorosceina" 
+    scale @  0.000557348829`_1.775e-06
+ 
+'unit cell 
+  space_group "Pn2_1a" 
+  a 10.470786_0.001047 '10.4595
+  b 13.172828_0.001023 '13.219
+  c 10.556286_0.000926 '10.5664
+  al  90.00000  
+  be=Get(al);
+  ga=Get(al);
+ 
+'atom basis in the unit cell 
+  site C1  x 0.890 y 0.306 z 0.233 occ C 1.0 
+  site C2  x 0.790 y 0.261 z 0.299 occ C 1.0 
+  site C3  x 0.707 y 0.194 z 0.236 occ C 1.0 
+  site C4  x 0.526 y 0.086 z 0.246 occ C 1.0 
+  site C5  x 0.441 y 0.032 z 0.323 occ C 1.0 
+  site C6  x 0.349 y -0.032 z 0.267 occ C 1.0 
+  site C7  x 0.342 y -0.037 z 0.135 occ C 1.0 
+  site C8  x 0.426 y 0.019 z 0.058 occ C 1.0 
+  site C9  x 0.523 y 0.078 z 0.114 occ C 1.0 
+  site C10 x 0.605 y 0.140 z 0.041 occ C 1.0 
+  site C11 x 0.702 y 0.193 z 0.103 occ C 1.0 
+  site C12 x 0.789 y 0.254 z 0.035 occ C 1.0 
+  site C13 x 0.882 y 0.311 z 0.100 occ C 1.0 
+  site C14 x 0.619 y 0.123 z -0.098 occ C 1.0 
+  site C15 x 0.704 y 0.047 z -0.139 occ C 1.0 
+  site C16 x 0.734 y 0.036 z -0.268 occ C 1.0 
+  site C17 x 0.673 y 0.098 z -0.357 occ C 1.0 
+  site C18 x 0.577 y 0.165 z -0.318 occ C 1.0 
+  site C19 x 0.548 y 0.177 z -0.188 occ C 1.0 
+  site C20 x 0.458 y 0.261 z -0.150 occ C 1.0 
+  site O1  x 0.976 y 0.364 z 0.298 occ O 1.0 
+  site O2  x 0.613 y 0.148 z 0.303 occ O 1.0 
+  site O3  x 0.277 y -0.082 z 0.333 occ O 1.0 
+  site O4  x 0.385 y 0.309 z -0.235 occ O 1.0 
+  site O5  x 0.453 y 0.290 z -0.039 occ O 1.0 
+
+  prm avrg_size_fluorescein  91.7876657`_1.32828592
+  lor_fwhm = 5.72957 Lam / (Cos(Th) avrg_size_fluorescein) ;  
+  
+  spherical_harmonics_hkl sh_po
+    sh_order 10 load sh_Cij_prm {
+      y00  sh_po_c00  1.02114`_0.00309
+      y20  sh_po_c20  0.08918`_0.01170
+      y22p sh_po_c22p -0.07057`_0.01550
+      y40  sh_po_c40 -0.10363`_0.01358
+      y42p !sh_po_c42p 0.00000
+      y44p !sh_po_c44p 0.00000
+      y60  !sh_po_c60  0.00000
+      y62p !sh_po_c62p 0.00000
+      y64p !sh_po_c64p 0.00000
+      y66p !sh_po_c66p 0.00000
+      }
+  scale_pks = sh_po;
+
+xdd_out fluoroceina_0050.xy load out_record out_fmt out_eqn { 
+	"%11.5f\t" = X; 
+	"%11.5f\n" = Ycalc; 
+} 
+ 
+macro Difractometro() 
+{                                                          
+  
+lam  
+	 ymin_on_ymax 0.00001                                                      
+                la  0.579  lo  1.5405902 lh  0.4374157 
+                la  0.080  lo  1.5410632 lh  0.6432140 
+                la  0.236  lo  1.5443983 lh  0.5128764 
+                la  0.105  lo  1.5446848 lh  0.6872322 
+  
+   Radius(217.5)                                                           
+   LP_Factor(!th2_monochromator, 0) 
+ Full_Axial_Model(12, 16, 16, 2.553, 3.113) 
+ 	'  12  Axial length of the X-ray source in mm 
+	'  16   Axial length of the sample in mm 
+	'  16   Axial length of the detector slit in mm 
+                         'For the Lynxeye it is the length of the Si strip 
+	 ' 2.553 primary_soller_angle   in degrees 
+         ' 3.113 secondary_soller_angle 3.113  in degrees 
+  
+ Tube_Tails(!source_width_c, 0.04 , !z1_c,-0.87980, !z2_c, 1.58642, !z1_z2_h_c, 0.00089) 
+	         
+	 'Horizontal divergence in the equatorial plane in degrees         
+   Divergence(0.5) 
+   Slit_Width(0.075)	  
+  
+}
+C_matrix_normalized
+{
+                             1   2   3   4   5   6   7   8   9  10  11  12
+bkg1167657152          1:  100 -94  88 -70 -97   0 -16 -15 -10   3   9  11
+bkg1167657368          2:  -94 100 -87  79  96  -0   3   2  10  -3  -7  -4
+bkg1167657584          3:   88 -87 100 -73 -89   0   6   8 -10   4   8  -7
+bkg1167657800          4:  -70  79 -73 100  75  -0  -8  -9   7  -2  -7  13
+m6998d4a9_0            5:  -97  96 -89  75 100  -0   5   4   9  -3  -7  -3
+m6998d4a9_1            6:    0  -0   0  -0  -0 100  -1   0  -6   6   3   1
+scale1167692960_       7:  -16   3   6  -8   5  -1 100  99  15  -5 -33 -39
+sh_po_c00              8:  -15   2   8  -9   4   0  99 100   4   4 -24 -40
+sh_po_c20              9:  -10  10 -10   7   9  -6  15   4 100 -36 -32   2
+sh_po_c22p            10:    3  -3   4  -2  -3   6  -5   4 -36 100  32   1
+sh_po_c40             11:    9  -7   8  -7  -7   3 -33 -24 -32  32 100   2
+avrg_size             12:   11  -4  -7  13  -3   1 -39 -40   2   1   2 100
+}

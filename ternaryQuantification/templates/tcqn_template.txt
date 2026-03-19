@@ -1,0 +1,52 @@
+'Definition of the crystal structure 
+str 
+  phase_name  "tcqn" 
+    scale @  0.00190077716`_1.4e-05
+ 
+'unit cell 
+  space_group "C2/c" 
+  a   8.915610_0.000853 '8.88400   'latpars  a @ 8.88400 '8.88400
+  b   7.094987_0.000618 '6.90360   'latpars  b @ 6.90360 '6.90360
+  c   16.377327_0.001597 '16.42100 'latpars  c @ 16.42100 '16.42100
+  al  90.00000  
+  be  98.57308_0.00687 '98.24100 'latpars  be @ 98.24100 '98.24100
+  ga  90.00000   
+ 
+'atom basis in the unit cell 
+  site N1 x 0.30687 y 0.24383 z 0.23988 occ N 1.0 beq 0.02160
+  site C1 x 0.65123 y 0.47404 z 0.48395 occ C 1.0 beq 0.01331
+  site H1 x 0.7533 y 0.4578 z 0.4742 occ H 1.0 beq 0.0160
+  site N2 x -0.02033 y 0.43413 z 0.40011 occ N 1.0 beq 0.02135
+  site C2 x 0.53546 y 0.42002 z 0.42555 occ C 1.0 beq 0.01347
+  site H2 x 0.5572 y 0.3661 z 0.3753 occ H 1.0 beq 0.0160
+  site C4 x 0.26078 y 0.38973 z 0.37923 occ C 1.0 beq 0.01353
+  site C3 x 0.37905 y 0.44364 z 0.43889 occ C 1.0 beq 0.01239
+  site C6 x 0.10468 y 0.41472 z 0.39038 occ C 1.0 beq 0.01544
+  site C5 x 0.28653 y 0.30871 z 0.30187 occ C 1.0 beq 0.01573
+
+  spherical_harmonics_hkl sh_t
+    sh_order 16 load sh_Cij_prm {
+      y00  !sh_po_c00  0.22667`_0.00255
+      y20  !sh_po_c20  0.14115`_0.00766
+      y22p !sh_po_c22p  0.
+      y22m !sh_po_c22m  0.
+      y40  !sh_po_c40  0.03675`_0.00941
+      y42p !sh_po_c42p 0.00000
+      y42m !sh_po_c42m 0.00000
+      y44p !sh_po_c44p 0.00000
+      y44m !sh_po_c44m 0.00000
+      y60  !sh_po_c60  0.00000
+      y62p !sh_po_c62p 0.00000
+      y62m !sh_po_c62m 0.00000
+      y64p !sh_po_c64p 0.00000
+      y64m !sh_po_c64m 0.00000
+      y66p !sh_po_c66p 0.00000
+      y66m !sh_po_c66m 0.00000
+      }
+
+  prm !avrg_size_tcqn 19.08528`_0.154059617
+  lor_fwhm = Abs(5.72957 sh_t Lam / (Cos(Th) avrg_size_tcqn)) ;   
+
+  MVW( 1926.378, 529.106, 69.845`_0.309)
+
+  

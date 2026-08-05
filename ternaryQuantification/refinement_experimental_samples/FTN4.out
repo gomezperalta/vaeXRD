@@ -1,0 +1,185 @@
+'09/10/2017 Patron de difraccion simulado  
+  
+'residuos to see goodness of the fit  
+r_wp  23.0566853
+  
+'write standad deviations  
+do_errors  
+  
+'The maximum number of refinement iterations, iters is set to 500000 by default  
+iters 1000  
+  
+'chi2_convergence_criteria value of 0.001 is sufficient for routine refinements  
+chi2_convergence_criteria 0.0001  
+  
+Difractometro()  
+   
+'Reading the diffraction pattern  
+xdd FTN4.raw 
+  
+'Modeling background	  
+  bkg @  228.000592`_56.1385241  1130.63392`_64.2258241 -1098.94377`_41.8794852  423.260817`_25.0032164  118.804173`_18.024262
+	One_on_X(@, 12009.8043`_894.652375)  
+  
+'Specimen is outside of diffraction plane	  
+   Specimen_Displacement(@, 0.0848970987`_0.00367604532)  
+
+str  
+  phase_name  "Fluoresceina"  
+    scale @  0.000138935452`_6.88e-06
+  
+'unit cell  
+  space_group "Pn2_1a"  
+  a 10.470786_0.001047 '10.4595 
+  b 13.172828_0.001023 '13.219 
+  c 10.556286_0.000926 '10.5664 
+  al  90.00000   
+  be=Get(al); 
+  ga=Get(al); 
+  
+'atom basis in the unit cell  
+  site C1  x 0.890 y 0.306 z 0.233 occ C 1.0  
+  site C2  x 0.790 y 0.261 z 0.299 occ C 1.0  
+  site C3  x 0.707 y 0.194 z 0.236 occ C 1.0  
+  site C4  x 0.526 y 0.086 z 0.246 occ C 1.0  
+  site C5  x 0.441 y 0.032 z 0.323 occ C 1.0  
+  site C6  x 0.349 y -0.032 z 0.267 occ C 1.0  
+  site C7  x 0.342 y -0.037 z 0.135 occ C 1.0  
+  site C8  x 0.426 y 0.019 z 0.058 occ C 1.0  
+  site C9  x 0.523 y 0.078 z 0.114 occ C 1.0  
+  site C10 x 0.605 y 0.140 z 0.041 occ C 1.0  
+  site C11 x 0.702 y 0.193 z 0.103 occ C 1.0  
+  site C12 x 0.789 y 0.254 z 0.035 occ C 1.0  
+  site C13 x 0.882 y 0.311 z 0.100 occ C 1.0  
+  site C14 x 0.619 y 0.123 z -0.098 occ C 1.0  
+  site C15 x 0.704 y 0.047 z -0.139 occ C 1.0  
+  site C16 x 0.734 y 0.036 z -0.268 occ C 1.0  
+  site C17 x 0.673 y 0.098 z -0.357 occ C 1.0  
+  site C18 x 0.577 y 0.165 z -0.318 occ C 1.0  
+  site C19 x 0.548 y 0.177 z -0.188 occ C 1.0  
+  site C20 x 0.458 y 0.261 z -0.150 occ C 1.0  
+  site O1  x 0.976 y 0.364 z 0.298 occ O 1.0  
+  site O2  x 0.613 y 0.148 z 0.303 occ O 1.0  
+  site O3  x 0.277 y -0.082 z 0.333 occ O 1.0  
+  site O4  x 0.385 y 0.309 z -0.235 occ O 1.0  
+  site O5  x 0.453 y 0.290 z -0.039 occ O 1.0  
+
+  prm avrg_size_fluorescein  80`_8.32931685_LIMIT_MIN_80 min 80 max 105
+  lor_fwhm = Abs(5.72957 Lam / (Cos(Th) avrg_size_fluorescein));   
+ 
+  MVW( 1280.844, 1456.027, 18.651`_0.811) 
+
+'Definition of the crystal structure  
+str  
+  phase_name  "tcqn"  
+    scale @  0.000468653051`_2.091e-05
+  
+'unit cell  
+  space_group "C2/c"  
+  a 8.914466_0.001209 '8.88400 
+  b 7.095738_0.000666 '6.90360 
+  c 16.371672_0.002211 '16.42100 
+  al  90.00000   
+  be  98.56318_0.00958 '98.24100 
+  ga  90.00000   
+  
+  site N1 x 0.30687 y 0.24383 z 0.23988 occ N 1.0 beq 0.02160
+  site C1 x 0.65123 y 0.47404 z 0.48395 occ C 1.0 beq 0.01331
+  site H1 x 0.7533 y 0.4578 z 0.4742 occ H 1.0 beq 0.0160
+  site N2 x -0.02033 y 0.43413 z 0.40011 occ N 1.0 beq 0.02135
+  site C2 x 0.53546 y 0.42002 z 0.42555 occ C 1.0 beq 0.01347
+  site H2 x 0.5572 y 0.3661 z 0.3753 occ H 1.0 beq 0.0160
+  site C4 x 0.26078 y 0.38973 z 0.37923 occ C 1.0 beq 0.01353
+  site C3 x 0.37905 y 0.44364 z 0.43889 occ C 1.0 beq 0.01239
+  site C6 x 0.10468 y 0.41472 z 0.39038 occ C 1.0 beq 0.01544
+  site C5 x 0.28653 y 0.30871 z 0.30187 occ C 1.0 beq 0.01573
+
+  prm avrg_size_tcqn  60`_5.228118_LIMIT_MIN_60 min 60 max 85
+  lor_fwhm = Abs(5.72957 Lam / (Cos(Th) avrg_size_tcqn));    
+ 
+  MVW( 816.748, 1024.041, 28.215`_0.987) 
+
+str  
+  phase_name  "ntcda"  
+    scale @  0.00270213229`_5.435e-05 '0.000654318563_1.094e-05
+  
+'unit cell  
+  space_group "P2_1/c"  
+  a  7.898696_0.002127 '7.88000   
+  b  5.337622_0.001401 '5.32200  
+  c  12.646414_0.003229 '12.60120   
+  al  90.00000   
+  be  107.20267_0.02739 '107.25700  
+  ga  90.00000   
+  
+'atom basis in the unit cell  
+  site O1 x 0.2474 y 1.0061 z 0.24799 occ O 1.0 beq 0.0521
+  site O2 x 0.5363 y 0.9973 z 0.32620 occ O 1.0 beq 0.0417
+  site O3 x 0.8278 y 0.9998 z 0.39530 occ O 1.0 beq 0.0574
+  site C1 x 0.3523 y 0.6920 z 0.38640 occ C 1.0 beq 0.0300
+  site C2 x 0.1887 y 0.5886 z 0.37750 occ C 1.0 beq 0.0371
+  site C3 x 0.8260 y 0.6094 z 0.55250 occ C 1.0 beq 0.0372
+  site C4 x 0.6773 y 0.6997 z 0.47420 occ C 1.0 beq 0.0309
+  site C5 x 0.5071 y 0.5996 z 0.46440 occ C 1.0 beq 0.0264
+  site C6 x 0.3673 y 0.9051 z 0.31440 occ C 1.0 beq 0.0359
+  site C7 x 0.6938 y 0.9043 z 0.39880 occ C 1.0 beq 0.0377
+  site H2 x 0.0840 y 0.6440 z 0.3270 occ H 1.0 beq 0.0420
+  site H3 x 0.9420 y 0.6770 z 0.5590 occ H 1.0 beq 0.0520
+
+  prm avrg_size_ntcda  50`_1.95822563_LIMIT_MIN_50 min 50 max 75
+  lor_fwhm = Abs(5.72957 Lam / (Cos(Th) avrg_size_ntcda));  
+
+  MVW( 536.356, 509.324, 53.134`_0.968) 
+
+/* 
+xdd_out FTN4-ref.xy load out_record out_fmt out_eqn {
+  "%11.5f\t" = X;
+  "%11.5f\t" = Yobs;
+  "%11.5f\t" = Ycalc;
+  "%11.5f\n" = Yobs-Ycalc;
+}
+*/  
+macro Difractometro()  
+{                                                           
+   
+lam   
+	 ymin_on_ymax 0.00001                                                       
+                la  0.579  lo  1.5405902 lh  0.4374157  
+                la  0.080  lo  1.5410632 lh  0.6432140  
+                la  0.236  lo  1.5443983 lh  0.5128764  
+                la  0.105  lo  1.5446848 lh  0.6872322  
+   
+   Radius(217.5)                                                            
+   LP_Factor(!th2_monochromator, 0)  
+ Full_Axial_Model(12, 16, 16, 2.553, 3.113)  
+ 	'  12  Axial length of the X-ray source in mm  
+	'  16   Axial length of the sample in mm  
+	'  16   Axial length of the detector slit in mm  
+                         'For the Lynxeye it is the length of the Si strip  
+	 ' 2.553 primary_soller_angle   in degrees  
+         ' 3.113 secondary_soller_angle 3.113  in degrees  
+   
+ Tube_Tails(!source_width_c, 0.04 , !z1_c,-0.87980, !z2_c, 1.58642, !z1_z2_h_c, 0.00089)  
+	          
+	 'Horizontal divergence in the equatorial plane in degrees          
+   Divergence(0.5)  
+   Slit_Width(0.075)	   
+   
+} 
+C_matrix_normalized
+{
+                             1   2   3   4   5   6   7   8   9  10  11  12  13
+bkg900138984           1:  100 -96  93 -83  81 -98   1   8  -6   7  -6  -7   5
+bkg900139200           2:  -96 100 -92  89 -77  99  -0 -10   8 -15  12   2  -2
+bkg900139416           3:   93 -92 100 -84  78 -95   1  15 -13  23 -18   0  -1
+bkg900139632           4:  -83  89 -84 100 -63  88  -1 -18  16 -25  20   1   1
+bkg900139848           5:   81 -77  78 -63 100 -79   3  18 -16   0  -1  -7   3
+m69b48cd7_0            6:  -98  99 -95  88 -79 100  -1 -11   9 -14  11   3  -2
+m69b48cd7_1            7:    1  -0   1  -1   3  -1 100  19  -7  -1   3 -16  -0
+scale900173904_        8:    8 -10  15 -18  18 -11  19 100 -69 -12  10 -37  24
+avrg_size_fluorescein  9:   -6   8 -13  16 -16   9  -7 -69 100   8  -3  23 -15
+scale900174456_       10:    7 -15  23 -25   0 -14  -1 -12   8 100 -72  -5   4
+avrg_size_tcqn        11:   -6  12 -18  20  -1  11   3  10  -3 -72 100   4  -9
+scale900174824_       12:   -7   2   0   1  -7   3 -16 -37  23  -5   4 100 -54
+avrg_size_ntcda       13:    5  -2  -1   1   3  -2  -0  24 -15   4  -9 -54 100
+}

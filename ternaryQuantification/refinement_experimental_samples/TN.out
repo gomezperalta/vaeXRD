@@ -1,0 +1,143 @@
+'09/10/2017 Patron de difraccion simulado  
+  
+'residuos to see goodness of the fit  
+r_wp  22.256368
+  
+'write standad deviations  
+do_errors  
+  
+'The maximum number of refinement iterations, iters is set to 500000 by default  
+iters 1000  
+  
+'chi2_convergence_criteria value of 0.001 is sufficient for routine refinements  
+chi2_convergence_criteria 0.0001  
+  
+Difractometro()  
+   
+'Reading the diffraction pattern  
+xdd TN.raw 
+ 
+'Modeling background	  
+  bkg @  261.412479`_60.9567561  1154.64365`_69.7005618 -1214.388`_45.1480226  491.8966`_26.8420204  148.909981`_19.4668598
+	One_on_X(@, 12663.3676`_968.064807)  
+  
+'Specimen is outside of diffraction plane	  
+   Specimen_Displacement(@, 0.0299670885`_0.00391661863)  
+ 
+'Definition of the crystal structure  
+str  
+  phase_name  "tcqn"  
+    scale  @  0.00123761641`_2.621e-05
+  
+'unit cell  
+  space_group "C2/c"  
+  a   8.951390_0.005257 '8.88400 
+  b   7.117743_0.002626 '6.90360 
+  c   16.437761_0.010908 '16.42100 
+  al  90.00000   
+  be  98.59187_0.04077 '98.24100 
+  ga  90.00000   
+  
+'atom basis in the unit cell  
+  site N1 x 0.30687 y 0.24383 z 0.23988 occ N 1.0 beq 0.02160
+  site C1 x 0.65123 y 0.47404 z 0.48395 occ C 1.0 beq 0.01331
+  site H1 x 0.7533 y 0.4578 z 0.4742 occ H 1.0 beq 0.0160
+  site N2 x -0.02033 y 0.43413 z 0.40011 occ N 1.0 beq 0.02135
+  site C2 x 0.53546 y 0.42002 z 0.42555 occ C 1.0 beq 0.01347
+  site H2 x 0.5572 y 0.3661 z 0.3753 occ H 1.0 beq 0.0160
+  site C4 x 0.26078 y 0.38973 z 0.37923 occ C 1.0 beq 0.01353
+  site C3 x 0.37905 y 0.44364 z 0.43889 occ C 1.0 beq 0.01239
+  site C6 x 0.10468 y 0.41472 z 0.39038 occ C 1.0 beq 0.01544
+  site C5 x 0.28653 y 0.30871 z 0.30187 occ C 1.0 beq 0.01573
+
+  prm avrg_size_tcqn  60`_2.54852965_LIMIT_MIN_60 min 60 max 85
+  lor_fwhm = Abs(5.72957 Lam / (Cos(Th) avrg_size_tcqn));   
+ 
+  MVW( 816.748, 1035.557, 53.966`_0.656) 
+
+str  
+  phase_name  "ntcda"  
+    scale @  0.00326860159`_5.18e-05 '0.000654318563_1.094e-05
+  
+'unit cell  
+  space_group "P2_1/c"  
+  a @  7.898696`_0.002127 '7.88000   
+  b @  5.337622`_0.001401 '5.32200  
+  c @  12.646414`_0.003229 '12.60120   
+  al  90.00000   
+  be @  107.20267`_0.02739 '107.25700  
+  ga  90.00000   
+  
+'atom basis in the unit cell  
+  site O1 x 0.2474 y 1.0061 z 0.24799 occ O 1.0 beq 0.0521
+  site O2 x 0.5363 y 0.9973 z 0.32620 occ O 1.0 beq 0.0417
+  site O3 x 0.8278 y 0.9998 z 0.39530 occ O 1.0 beq 0.0574
+  site C1 x 0.3523 y 0.6920 z 0.38640 occ C 1.0 beq 0.0300
+  site C2 x 0.1887 y 0.5886 z 0.37750 occ C 1.0 beq 0.0371
+  site C3 x 0.8260 y 0.6094 z 0.55250 occ C 1.0 beq 0.0372
+  site C4 x 0.6773 y 0.6997 z 0.47420 occ C 1.0 beq 0.0309
+  site C5 x 0.5071 y 0.5996 z 0.46440 occ C 1.0 beq 0.0264
+  site C6 x 0.3673 y 0.9051 z 0.31440 occ C 1.0 beq 0.0359
+  site C7 x 0.6938 y 0.9043 z 0.39880 occ C 1.0 beq 0.0377
+  site H2 x 0.0840 y 0.6440 z 0.3270 occ H 1.0 beq 0.0420
+  site H3 x 0.9420 y 0.6770 z 0.5590 occ H 1.0 beq 0.0520
+
+  prm avrg_size_ntcda  65.0101589`_2.30705383 min 50 max 75
+  lor_fwhm = Abs(5.72957 Lam / (Cos(Th) avrg_size_ntcda));  
+
+  MVW( 536.356, 509.324`_0.243, 46.034`_0.656) 
+
+/* 
+xdd_out TN-ref.xy load out_record out_fmt out_eqn {
+  "%11.5f\t" = X;
+  "%11.5f\t" = Yobs;
+  "%11.5f\t" = Ycalc;
+  "%11.5f\n" = Yobs-Ycalc;
+}
+*/  
+macro Difractometro()  
+{                                                           
+   
+lam   
+	 ymin_on_ymax 0.00001                                                       
+                la  0.579  lo  1.5405902 lh  0.4374157  
+                la  0.080  lo  1.5410632 lh  0.6432140  
+                la  0.236  lo  1.5443983 lh  0.5128764  
+                la  0.105  lo  1.5446848 lh  0.6872322  
+   
+   Radius(217.5)                                                            
+   LP_Factor(!th2_monochromator, 0)  
+ Full_Axial_Model(12, 16, 16, 2.553, 3.113)  
+ 	'  12  Axial length of the X-ray source in mm  
+	'  16   Axial length of the sample in mm  
+	'  16   Axial length of the detector slit in mm  
+                         'For the Lynxeye it is the length of the Si strip  
+	 ' 2.553 primary_soller_angle   in degrees  
+         ' 3.113 secondary_soller_angle 3.113  in degrees  
+   
+ Tube_Tails(!source_width_c, 0.04 , !z1_c,-0.87980, !z2_c, 1.58642, !z1_z2_h_c, 0.00089)  
+	          
+	 'Horizontal divergence in the equatorial plane in degrees          
+   Divergence(0.5)  
+   Slit_Width(0.075)	   
+   
+} 
+C_matrix_normalized
+{
+                             1   2   3   4   5   6   7   8   9  10  11  12  13  14  15
+bkg1166477288          1:  100 -96  93 -84  82 -98  -0   6  -6  -3  -1  -0   1  -0   1
+bkg1166477504          2:  -96 100 -92  89 -77  99   1 -16  13  -3   0   0  -1  -0   1
+bkg1166477720          3:   93 -92 100 -84  76 -95  -1  25 -21   6  -0  -1   1   0  -5
+bkg1166477936          4:  -84  89 -84 100 -61  88   1 -26  22  -6  -1  -0  -0  -1   7
+bkg1166478152          5:   82 -77  76 -61 100 -79   1   2  -3   0  -2  -0   1  -1  -2
+m69b47ce8_34           6:  -98  99 -95  88 -79 100   0 -15  13  -1   0   0  -1  -0   2
+m69b47ce8_35           7:   -0   1  -1   1   1   0 100  -5   0   4 -53 -20 -25  -4   6
+scale1166513312_       8:    6 -16  25 -26   2 -15  -5 100 -64  -9   3  -1  -0   3   3
+avrg_size_tcqn         9:   -6  13 -21  22  -3  13   0 -64 100   4  -2  -2  -3  -5  -5
+scale1166513864_      10:   -3  -3   6  -6   0  -1   4  -9   4 100   2  -0   2   2 -40
+a1166545736_          11:   -1   0  -0  -1  -2   0 -53   3  -2   2 100  -2   2  53 -13
+b1166545928_          12:   -0   0  -1  -0  -0   0 -20  -1  -2  -0  -2 100 -54 -14  -2
+c1166546504_          13:    1  -1   1  -0   1  -1 -25  -0  -3   2   2 -54 100 -12  -3
+be1166546888_         14:   -0  -0   0  -1  -1  -0  -4   3  -5   2  53 -14 -12 100   0
+avrg_size_ntcda       15:    1   1  -5   7  -2   2   6   3  -5 -40 -13  -2  -3   0 100
+}

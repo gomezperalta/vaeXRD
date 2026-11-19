@@ -1,5 +1,5 @@
 # vaeXRD
-Electronic resources of the paper "Variational autoencoders for generating multiphase powder diffraction patterns and their quantification". Paper currently under review.
+Electronic resources of the paper "Variational autoencoders for generating multiphase powder diffraction patterns and their quantification". Paper currently under review (https://dx.doi.org/10.2139/ssrn.6889867).
 
 Please select the branch "master" to access the supporting information.
 
